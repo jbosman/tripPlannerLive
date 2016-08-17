@@ -26,20 +26,6 @@ router.get('/', function(req, res, next) {
     findingRestaurants
   ])
   .spread(function(hotels, activities, restaurants) {
-    
-    
-    // for( var hotel in hotels) {
-    //   console.log(hotels);
-    //   hotel.location = Place.getLocationByID(hotel.placeId);
-    // }
-    //  for( var activity in activities) {
-    //   activity.location = Place.getLocationByID(activity.placeId);
-    // }
-    //  for( var restaurant in restaurants) {
-    //   restaurant.location = Place.getLocationByID(restaurant.placeId);
-    // }
-
-
 
 
     res.render('index', {
