@@ -8,6 +8,18 @@ var Hotel = db.define('hotel', {
     validate: { min: 1, max: 5 }
   },
   amenities: Sequelize.STRING
+},{
+	classMethods: {
+		getplaceIDofHotel: function(hotel){
+			Hotel.findOne({
+				where: {
+					name: hotel
+				}
+			}).then(function(hotel){
+				return hotel.placeId;
+			});
+		}
+	}
 });
 
 module.exports = Hotel;

@@ -7,6 +7,19 @@ var Place = db.define('place', {
   state: Sequelize.STRING,
   phone: Sequelize.STRING,
   location: Sequelize.ARRAY(Sequelize.DOUBLE)
+},{
+	classMethods: {
+		getLocationByID : function(id){
+			Place.findOne({
+				where: {
+					id: id
+				}
+			})
+			.then(function(place){
+				return place.location;
+			})
+		}
+	}
 });
 
 module.exports = Place;
