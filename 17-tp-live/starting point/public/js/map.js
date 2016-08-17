@@ -72,7 +72,6 @@ function addItemToItin(string){
     
     // Register X button event handler
     savedElSpanXbtn.on('click', function(){
-      console.log("Got here 2");
       $(this).parent().remove();
     });
 
@@ -88,10 +87,6 @@ $(document).ready( function(){
 
   $('#hotelsPlusBtn').on('click', function(){
     addItemToItin('hotel');
-    //   $('.itinXbtn').on('click', function(){
-    //   console.log("Got here");
-    //   // this.parent().remove();
-    // });
   });
 
   $('#restPlusBtn').on('click', function(){
