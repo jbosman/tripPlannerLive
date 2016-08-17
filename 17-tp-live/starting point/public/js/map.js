@@ -61,3 +61,54 @@ $(function initializeMap (){
   drawMarker('activity', [40.716291, -73.995315]);
 
 });
+
+function addItemToItin(string){
+    var elementIdToSearch = string + "-choices";
+    var selected = document.getElementById(elementIdToSearch).value;
+    var Div = $('<div class="itinerary-item"> </div>'); 
+
+    var savedElementSpan = $('<span class="title">' + selected + '</span>');
+    var savedElSpanXbtn = $('<button class="btn btn-xs btn-danger remove btn-circle itinXbtn">x</button>');
+    
+    // Register X button event handler
+    savedElSpanXbtn.on('click', function(){
+      console.log("Got here 2");
+      $(this).parent().remove();
+    });
+
+    Div.append(savedElementSpan);
+    Div.append(savedElSpanXbtn);
+
+    var elementID = "#" + string + "_Itin";
+
+    $(elementID).append(Div);
+}
+
+$(document).ready( function(){
+
+  $('#hotelsPlusBtn').on('click', function(){
+    addItemToItin('hotel');
+    //   $('.itinXbtn').on('click', function(){
+    //   console.log("Got here");
+    //   // this.parent().remove();
+    // });
+  });
+
+  $('#restPlusBtn').on('click', function(){
+    addItemToItin('restaurant');
+  });
+
+  $('#activityPlusBtn').on('click', function(){
+    addItemToItin('activity');
+  });
+
+  $('.itinXbtn').on('click', function(){
+    console.log("Got here");
+    this.parent().remove();
+  });
+
+  // $('.itinXbtn').css("border", "3px solid green");
+
+
+  
+});
